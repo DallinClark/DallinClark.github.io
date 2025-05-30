@@ -14,8 +14,7 @@
     <div class="header-container">
       <h1>Dallin Clark — Graphics Programmer</h1>
       <nav>
-        <a href="#">Home</a>
-        <a href="#projects">Projects</a>
+        <a href="index.html">Home</a>
         <a href="media/Dallin_Clark_Resume_10-28.pdf" target="_blank">Resume</a>
         <a href="https://github.com/DallinClark" target="_blank">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon" />
@@ -27,30 +26,57 @@
     </div>
   </header>
 
-    <section class="about">
-      <img src="media/headshot.png" alt="Dallin Clark" class="headshot" />
-      <div>
-        <h2>Welcome!</h2>
-        <p>
-        I'm Dallin Clark, a graphics programmer focused on real-time rendering and animation pipelines. I'm currently an undergraduate at BYU and an assistant researcher in the Advanced Graphics Lab. I also serve as the Pipeline TD for the short film <em>Honey Business</em>.
-        <br><br>
-        I love everything related to animation software development, but my true passion lies in graphics programming. In my free time, I enjoy building side projects with OpenGL and Vulkan, and I hope to pursue these topics further in graduate school.
-        <br><br>
-        Feel free to explore some of my projects below!
-      </p>
-      </div>
-    </section>
+  <section class="about">
+    <img src="media/headshot.png" alt="Dallin Clark" class="headshot" />
+    <div>
+      <h2>Welcome!</h2>
+      <p>
+      I'm Dallin Clark, a graphics programmer focused on real-time rendering and animation pipelines. I'm currently an undergraduate at BYU and an assistant researcher in the Advanced Graphics Lab. I also serve as the Pipeline TD for the short film <em>Honey Business</em>.
+      <br><br>
+      I love everything related to animation software development, but my true passion lies in graphics programming. In my free time, I enjoy building side projects with OpenGL and Vulkan, and I hope to pursue these topics further in graduate school.
+      <br><br>
+      Feel free to explore some of my projects below!
+    </p>
+    </div>
+  </section>
 
-    <hr class="section-divider">
+  <hr class="section-divider">
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>USD pipeline for a short film</li>
-        <li>VR rig control system in Unreal Engine</li>
-        <li>Chess multiplayer server with Java + WebSocket</li>
-      </ul>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <a href="projects/physics_engine.html" class="project-card">
+        <h3 class="project-title">Real Time Physics Engine</h3>
+        <img src="media/project_thumbnails/physics_thumb.png" alt="Real Time Physics Engine thumbnail">
+        <p class="project-description">A real time physics simulation tool made using C++ and OpenGL.</p>
+      </a>
+
+      <a href="projects/bobo_pipe.html" class="project-card">
+        <h3 class="project-title">Honey Buisness Pipeline</h3>
+        <img src="media/project_thumbnails/pipe_thumb.png" alt="USD pipeline thumbnail">
+        <p class="project-description">A USD pipeline used for asset creation, layout, shading, animaiton, fx, lighting, and more in the BYU short film <em> Honey Buisness</em></em>.</p>
+      </a>
+  </section>
+
+  <hr class="section-divider">
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="project-grid">
+        <a href="projects/vrware.html" class="project-card">
+        <h3 class="project-title">OS-Agnostic Lab Image</h3>
+        <img src="media/project_thumbnails/OS_thumb.png" alt="OS thumbnail">
+        <p class="project-description">A Linux image for lab machines that boots up a Windows virtual mahcine at the press of a button, allowing for dual OS workflows.</p>
+      </a>
+
+      <a href="projects/vrware.html" class="project-card">
+        <h3 class="project-title">VRWare</h3>
+        <img src="media/project_thumbnails/VR_thumb.png" alt="VR thumbnail">
+        <p class="project-description">A set of VR control schemes and minigames used for ongoing research into intuitive VR controls.</p>
+      </a>
+  </section>
+
+  <hr class="section-divider">
   <div>
 </body>
 </html>
