@@ -71,9 +71,12 @@ nav a .icon {
 }
 
 .headshot {
-  width: 200px;
+  border: 2px solid #2c2622;
+  border-radius: 80%;       
+  width: 220px;             
   height: auto;
-  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-right: 2rem;        
 }
 
 .links a {
@@ -168,5 +171,30 @@ nav a .icon {
   width: 90%;
 }
 
+.project-card.wide {
+  grid-column: span 2;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
 
+.project-card.wide video {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card.wide ul.project-details {
+  padding-left: 1.2rem;
+  list-style-type: "📌 ";
+  margin: 1rem 0;
+}
+
+.project-card.wide ul {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.project-card.wide p {
+  line-height: 1.6;
+}
 

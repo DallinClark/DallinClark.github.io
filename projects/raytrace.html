@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dallin Clark — Graphic's Programmer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<div class="project-card wide">
+  <h3 class="project-title">Real-Time Vulkan Ray Tracer</h3>
+  <video width="100%" controls poster="media/project_thumbnails/raytrace.png">
+    <source src="media/projects/raytrace.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p class="project-description">
+    This project is a custom-built <strong>real-time ray tracer</strong> using <strong>Vulkan</strong> and C++. It renders physically accurate lighting effects such as <em>reflections</em>, <em>shadows</em>, and <em>global illumination</em> using Vulkan's <code>KHR_ray_tracing_pipeline</code> and <code>KHR_acceleration_structure</code> extensions.
+  </p>
+
+  <ul class="project-details">
+    <li>🚀 <strong>Performance-Oriented:</strong> Acceleration structures (BLAS/TLAS) are built on-the-fly with GPU-side compaction and memory reuse.</li>
+    <li>📦 <strong>Model Support:</strong> Parses OBJ files with materials and textures. Supports arbitrarily large triangle meshes, loaded into GPU-managed buffers.</li>
+    <li>🎮 <strong>Interactive:</strong> Real-time camera navigation (orbit, pan, zoom) with support for animated instances and live hot reloading of scenes.</li>
+    <li>📊 <strong>Shader Binding Table:</strong> Implements a programmable SBT layout to map rays to hit shaders and material indices with custom layout logic.</li>
+    <li>🌐 <strong>Material System:</strong> GGX-based microfacet BRDF with energy-conserving reflection model, optional Fresnel, and roughness remapping.</li>
+    <li>🌀 <strong>Temporal Denoising:</strong> Integrates a simplified reprojection-based denoiser to reduce noise over time without ghosting.</li>
+  </ul>
+
+  <p>
+    This ray tracer was built from scratch as a deep dive into GPU ray tracing and modern graphics APIs. It helped me develop a practical understanding of:
+    <ul>
+      <li>Memory management and synchronization in Vulkan</li>
+      <li>Pipeline creation and descriptor set layout for complex shaders</li>
+      <li>Spatial data structures like BVHs (Bounding Volume Hierarchies)</li>
+      <li>Deferred lighting techniques for ray-based rendering</li>
+      <li>Low-level debugging using RenderDoc and NVIDIA Nsight</li>
+    </ul>
+  </p>
+
+  <p>
+    👉 <strong>Try It:</strong> Clone and build instructions available on <a href="https://github.com/DallinClark" target="_blank">GitHub</a> (repo is private by default, but sharable on request). Built with cross-platform support in mind (Linux & Windows).
+  </p>
+</div>
+
