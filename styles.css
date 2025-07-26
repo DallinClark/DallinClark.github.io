@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 1rem;
   background: #e2c491;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main-container {
@@ -151,8 +151,8 @@ nav a .icon {
 }
 
 
-#about h2 {
-  font-size: 80%;
+.about h2 {
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   color: #2c2622; /* darker brown */
 }
@@ -166,10 +166,13 @@ nav a .icon {
 
 .section-divider {
   border: none;
-  border-top: 2px solid #2c2622; 
-  max-width: 1200px;
-  width: 90%;
+  border-top: 2px solid #2c2622;
+  width: 105%;                    /* extend slightly beyond container */
+  max-width: none;               /* override previous max-width */
+  margin: 2rem auto;
+  transform: translateX(-2.5%);  /* shift left to keep it centered */
 }
+
 
 .project-card.wide {
   grid-column: span 2;

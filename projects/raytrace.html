@@ -3,44 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dallin Clark — Graphic's Programmer</title>
+  <title>Dallin Clark — Graphics Programmer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="project_styles.css">
 </head>
 
-<div class="project-card wide">
-  <h3 class="project-title">Real-Time Vulkan Ray Tracer</h3>
-  <video width="100%" controls poster="media/project_thumbnails/raytrace.png">
-    <source src="media/projects/raytrace.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<body>  
+  <div class="main-container">
+    <header>
+      <div class="header-container">
+        <h1>Dallin Clark — Graphics Programmer</h1>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="media/Dallin_Clark_Resume_10-28.pdf" target="_blank">Resume</a>
+          <a href="https://github.com/DallinClark" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon" />
+          </a>
+          <a href="https://linkedin.com/in/dallin-clark1" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="icon" />
+          </a>
+        </nav>
+      </div>
+    </header>
 
-  <p class="project-description">
-    This project is a custom-built <strong>real-time ray tracer</strong> using <strong>Vulkan</strong> and C++. It renders physically accurate lighting effects such as <em>reflections</em>, <em>shadows</em>, and <em>global illumination</em> using Vulkan's <code>KHR_ray_tracing_pipeline</code> and <code>KHR_acceleration_structure</code> extensions.
-  </p>
+    <section id="raytracer" class="project-detail-section">
+      <section class="raytracer-hero">
+        <div class="hero-overlay">
+          <h1>Real-Time Vulkan Ray Tracer</h1>
+        </div>
+      </section>
 
-  <ul class="project-details">
-    <li>🚀 <strong>Performance-Oriented:</strong> Acceleration structures (BLAS/TLAS) are built on-the-fly with GPU-side compaction and memory reuse.</li>
-    <li>📦 <strong>Model Support:</strong> Parses OBJ files with materials and textures. Supports arbitrarily large triangle meshes, loaded into GPU-managed buffers.</li>
-    <li>🎮 <strong>Interactive:</strong> Real-time camera navigation (orbit, pan, zoom) with support for animated instances and live hot reloading of scenes.</li>
-    <li>📊 <strong>Shader Binding Table:</strong> Implements a programmable SBT layout to map rays to hit shaders and material indices with custom layout logic.</li>
-    <li>🌐 <strong>Material System:</strong> GGX-based microfacet BRDF with energy-conserving reflection model, optional Fresnel, and roughness remapping.</li>
-    <li>🌀 <strong>Temporal Denoising:</strong> Integrates a simplified reprojection-based denoiser to reduce noise over time without ghosting.</li>
-  </ul>
+       <div class="project-details">
+        <p>
+          This project is a Vulkan-based renderer I built from the ground up using C++20 and Vulkan-Hpp, designed to render scenes in real time.
+          It supports real-time RTX shadow rays, physically based materials, area lights, denoising, multiple OBJ models with textures, and more.
+          I built this in order to learn more about modern C++, hardware accelerated raytracing, Vulkan, and current graphics techniques.
+        </p>
+      </div>
 
-  <p>
-    This ray tracer was built from scratch as a deep dive into GPU ray tracing and modern graphics APIs. It helped me develop a practical understanding of:
-    <ul>
-      <li>Memory management and synchronization in Vulkan</li>
-      <li>Pipeline creation and descriptor set layout for complex shaders</li>
-      <li>Spatial data structures like BVHs (Bounding Volume Hierarchies)</li>
-      <li>Deferred lighting techniques for ray-based rendering</li>
-      <li>Low-level debugging using RenderDoc and NVIDIA Nsight</li>
-    </ul>
-  </p>
+      <div class="project-features">
+        <h2>Features</h2>
+        <ul>
+          <li>Built from the ground up in <strong>C++20</strong> using <strong>Vulkan</strong> and <strong>Vulkan-Hpp</strong></li>
+          <li>Physically accurate light transport with modern GPU ray tracing pipelines</li>
+          <li>Acceleration structures (BLAS and TLAS) for optimized rendering</li>
+          <li>Programmable ray tracing pipeline with closest-hit and any-hit shaders</li>
+          <li>Supports multiple textured OBJ models with descriptor sets</li>
+          <li>Storage image output with ray generation shaders writing directly to full-resolution images</li>
+          <li>Custom Vulkan wrappers for descriptor pools, shader binding tables, and pipeline layouts</li>
+          <li>Dynamic scene metadata loading and render graph building</li>
+          <li>Live debugging video demonstration included</li>
+        </ul>
+      </div>
 
-  <p>
-    👉 <strong>Try It:</strong> Clone and build instructions available on <a href="https://github.com/DallinClark" target="_blank">GitHub</a> (repo is private by default, but sharable on request). Built with cross-platform support in mind (Linux & Windows).
-  </p>
-</div>
-
+      <div class="project-video">
+        <iframe 
+          src="https://www.youtube.com/embed/AdqKjL26Mhg?rel=0&modestbranding=1"
+          title="Real-Time Vulkan Ray Tracer by Dallin Clark"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

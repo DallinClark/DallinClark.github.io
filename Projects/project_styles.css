@@ -20,7 +20,6 @@ header {
   padding: 0.0rem 0;
   width: 100%;
   margin: 0;
-
 }
 
 /* Header layout */
@@ -90,18 +89,90 @@ nav a .icon {
 }
 
 .project-video {
-  flex: 0 2 60%;
+  width: 100%;
+  padding-top: 1.3rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 0;
-  padding-top: 1.3rem;
-  align-self: flex-start;
 }
 
 .project-video iframe {
   width: 100%;
-  max-width: 640px;
-  height: 360px; /* larger height */
+  max-width: 960px;
+  aspect-ratio: 16 / 9; /* modern responsive method */
   border: none;
+}
+
+.raytracer-hero {
+  width: 100%;            /* fill main-container width */
+  height: 500px;          /* or set height to 1080px if you want full HD vertical */
+  background-color: black;  
+  background-image: url("../media/raytrace_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;  /* scale image to fit inside container, showing whole image */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+
+
+.hero-overlay {
+  background-color: transparent; /* remove hazy background */
+  padding: 0;                    /* remove extra padding if you want */
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  position: absolute;            /* position text absolutely inside hero */
+  top: 6px;                    /* move it near top (adjust as needed) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;          /* so it doesn’t block clicks, optional */
+}
+
+/* Keep video responsive and centered */
+.project-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 960px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Features section styling */
+.project-features {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+  color: #2c2622;
+  padding: 0 1.5rem; /* match padding of project-detail-section */
+}
+
+.project-features h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-features ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-details {
+  font-size: 1.2rem;
+  color: #2c2622;
+  text-align: left;
+}
+
+.project-details h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
