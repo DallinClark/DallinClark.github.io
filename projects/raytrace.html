@@ -30,49 +30,83 @@
     </div>
 
   <section id="raytracer" class="project-detail-section">
-    <!-- Banner title moved here -->
+  <!-- Image carousel -->
+  <section class="raytracer-carousel">
+    <div class="carousel">
+      <button class="carousel-btn prev">&#10094;</button>
 
-    <section class="raytracer-hero">
-      <!-- Removed inner h1 to avoid duplicate title -->
-      <div class="hero-overlay">
-        <!-- Keep empty or add subtle styling if needed -->
-      </div>
-    </section>
-        <div class="project-details">
-        <p>
-          This project is a <b>Vulkan</b>-based renderer I built from the ground up using <b>C++20</b> and <b>Vulkan-Hpp</b>, designed to render scenes in real time.
-          It supports real-time <b>RTX</b> shadow rays, physically based materials, area lights, denoising, multiple <b>OBJ</b> models with textures, and more.
-          I built this in order to learn more about modern <b>C++</b>, hardware accelerated raytracing, Vulkan, and current graphics techniques.
-        </p>
+      <div class="carousel-images">
+        <img src="../media/raytrace_bg.png" alt="Screenshot 1" class="active">
+        <img src="../media/project_thumbnails/raytrace2.png" alt="Screenshot 2">
       </div>
 
-      <div class="project-features">
-        <h2>Features</h2>
-        <hr class="section-divider">
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+  </section>
 
-        <ul>
-          <li>Built from the ground up in <strong>C++20</strong> using <strong>Vulkan</strong> and <strong>Vulkan-Hpp</strong></li>
-          <li>Physically accurate light transport with modern GPU ray tracing pipelines</li>
-          <li>Acceleration structures (BLAS and TLAS) for optimized rendering</li>
-          <li>Programmable ray tracing pipeline with closest-hit and any-hit shaders</li>
-          <li>Supports multiple textured OBJ models with descriptor sets</li>
-          <li>Storage image output with ray generation shaders writing directly to full-resolution images</li>
-          <li>Custom Vulkan wrappers for descriptor pools, shader binding tables, and pipeline layouts</li>
-          <li>Dynamic scene metadata loading and render graph building</li>
-          <li>Live debugging video demonstration included</li>
-        </ul>
-      </div>
-
-      <div class="project-video">
-        <iframe 
-          src="https://www.youtube.com/embed/AdqKjL26Mhg?rel=0&modestbranding=1"
-          title="Real-Time Vulkan Ray Tracer by Dallin Clark"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
+  <!-- Project details -->
+  <div class="project-details">
+    <p>
+      This project is a <b>Vulkan</b>-based renderer I built from the ground up using <b>C++20</b> and <b>Vulkan-Hpp</b>, designed to render scenes in real time.
+      It supports real-time <b>RTX</b> shadow rays, physically based materials, area lights, denoising, multiple <b>OBJ</b> models with textures, and more.
+      I built this in order to learn more about modern <b>C++</b>, hardware accelerated raytracing, Vulkan, and current graphics techniques.
+    </p>
   </div>
+
+  <!-- Features -->
+  <div class="project-features">
+    <h2>Features</h2>
+    <hr class="section-divider">
+
+    <ul>
+      <li>Built from the ground up in <strong>C++20</strong> using <strong>Vulkan</strong> and <strong>Vulkan-Hpp</strong></li>
+      <li>Physically accurate light transport with modern GPU ray tracing pipelines</li>
+      <li>Acceleration structures (BLAS and TLAS) for optimized rendering</li>
+      <li>Programmable ray tracing pipeline with closest-hit and any-hit shaders</li>
+      <li>Supports multiple textured OBJ models with descriptor sets</li>
+      <li>Storage image output with ray generation shaders writing directly to full-resolution images</li>
+      <li>Custom Vulkan wrappers for descriptor pools, shader binding tables, and pipeline layouts</li>
+      <li>Dynamic scene metadata loading and render graph building</li>
+      <li>Live debugging video demonstration included</li>
+    </ul>
+  </div>
+
+  <!-- Embedded video -->
+  <div class="project-video">
+    <iframe 
+      src="https://www.youtube.com/embed/AdqKjL26Mhg?rel=0&modestbranding=1"
+      title="Real-Time Vulkan Ray Tracer by Dallin Clark"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+  </div>
+  <script>
+  const images = document.querySelectorAll('.carousel-images img');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  let current = 0;
+
+  function updateCarousel() {
+    images.forEach((img, index) => {
+      img.classList.toggle('active', index === current);
+    });
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    updateCarousel();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    updateCarousel();
+  });
+
+  updateCarousel();
+</script>
+
 </body>
 </html>
