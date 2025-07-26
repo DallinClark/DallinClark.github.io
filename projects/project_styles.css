@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 1rem;
   background: #e2c491;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main-container {
@@ -212,12 +212,9 @@ nav a .icon {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   font-size: 3rem;
-  color: #f0a500;
+  color: #d5ccbb;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  text-shadow:
-    0 0 10px #f0a500aa,
-    0 0 20px #f0a500bb,
-    0 0 30px #f0a500cc;
+
   margin: 0;
 }
