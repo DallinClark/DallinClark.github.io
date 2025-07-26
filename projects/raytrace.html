@@ -26,14 +26,19 @@
       </div>
     </header>
 
-    <section id="raytracer" class="project-detail-section">
-      <section class="raytracer-hero">
-        <div class="hero-overlay">
-          <h1>Real-Time Vulkan Ray Tracer</h1>
-        </div>
-      </section>
+  <section id="raytracer" class="project-detail-section">
+    <!-- Banner title moved here -->
+    <div class="raytracer-banner">
+      <h1>Real-Time Vulkan Ray Tracer</h1>
+    </div>
 
-       <div class="project-details">
+    <section class="raytracer-hero">
+      <!-- Removed inner h1 to avoid duplicate title -->
+      <div class="hero-overlay">
+        <!-- Keep empty or add subtle styling if needed -->
+      </div>
+    </section>
+        <div class="project-details">
         <p>
           This project is a <b>Vulkan</b>-based renderer I built from the ground up using <b>C++20</b> and <b>Vulkan-Hpp</b>, designed to render scenes in real time.
           It supports real-time <b>RTX</b> shadow rays, physically based materials, area lights, denoising, multiple <b>OBJ</b> models with textures, and more.
