@@ -39,38 +39,122 @@
       It consists of a full production framework that streamlines asset publishing, shot setup, look development, layout creation, render submission, and more.  
       It's purpose is to standardize workflows across <b>Maya</b>, <b>Houdini</b>, <b>Substance Painter</b>, and <b>Nuke</b>, and it utilizes <b>Python</b> and USD.
       <br><br>
-      Read more about some of the features below!
+      Read more about some of my contributions below!
     </p>
   </div>
 
   <!-- Features -->
   <div class="project-features">
-    <h2>Features</h2>
+    <h2>Maya/Houdini USD Layout Toolset</h2>
     <hr class="section-divider">
+       <p>
+          This toolset provides a fully integrated solution for authoring USD layout stages directly within Maya. 
+          Using Maya’s USD proxy shape system, it automates stage creation by generating a structured USD hierarchy allowing for layout group creation, 
+          and ShotGrid-linked asset references at the press of a button.
 
-    <ul>
-      <li>Built from the ground up in <strong>C++20</strong> using <strong>Vulkan</strong> and <strong>Vulkan-Hpp</strong></li>
-      <li>Physically accurate light transport with modern GPU ray tracing pipelines</li>
-      <li>Acceleration structures (BLAS and TLAS) for optimized rendering</li>
-      <li>Programmable ray tracing pipeline with closest-hit and any-hit shaders</li>
-      <li>Supports multiple textured OBJ models with descriptor sets</li>
-      <li>Storage image output with ray generation shaders writing directly to full-resolution images</li>
-      <li>Custom Vulkan wrappers for descriptor pools, shader binding tables, and pipeline layouts</li>
-      <li>Dynamic scene metadata loading and render graph building</li>
-      <li>Live debugging video demonstration included</li>
-    </ul>
-  </div>
+        <img src="media/qt_layout_tool.png" alt="Qt Layout Tool UI" class="tool-image">
 
-  <!-- Embedded video -->
-  <div class="project-video">
-    <iframe 
-      src="https://www.youtube.com/embed/AdqKjL26Mhg?rel=0&modestbranding=1"
-      title="Real-Time Vulkan Ray Tracer by Dallin Clark"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+        <p>
+          The tool includes a set of custom Qt interfaces that query ShotGrid for the list of sets to build upon, and a list of assets to reference in. 
+          Artists can assign or replace layout contents using dropdowns and selection UIs, ensuring consistency with production-tracked assets. 
+          These selections drive the creation of reference prims, grouped by logical layout groupings, and organized under a user-defined hierarchy inside the USD stage.
+        </p>
+
+        <img src="media/qt_asset_browser.png" alt="Qt Asset Browser" class="tool-image">
+
+        <p>
+          Transform control is handled through a Maya script job that listens for viewport selection. 
+          When an asset proxy is selected, its transform is automatically applied to the corresponding 
+          Xform prim tied to the reference, allowing for transforms to be applied correctly regardless of how the object was selected. 
+          This abstraction ensures that the layout’s final USD file retains clean hierarchical transforms without Maya-native DAG clutter.
+        </p>
+
+        <p>
+          The exported USD file is designed to be visually and structurally identical to those authored natively in Houdini Solaris. 
+          A companion Solaris-based layout extension tool loads these Maya-authored stages and allow these layout to be built upon in either software. 
+          Houdini will always load the current maya layout and add it's changes on top, but for Maya, due to its destructive workflow, has a button 
+          that will make whatever scene if currenly up match exactly a chosen layout that has been published from Houdini, allowing for layouts to 
+          be edited in either software, and to be exported in a way that can be used downstream.
+        </p>
+
+        <img src="media/usd_stage_output.png" alt="Output USD Stage in Solaris" class="tool-image">
+
+        <p>
+          Altogether, this tool bridges the gap between DCCs, allowing layout to begin in Maya where artists are most comfortable,
+          while ensuring compatibility and fidelity with downstream USD workflows in Solaris or any Hydra-compliant renderer.
+        </p>
+
+    <h2>Look Dev Pipeline</h2>
+    <hr class="section-divider">
+        <p>
+          This custom tool streamlines the surfacing workflow across Substance Painter, ShotGrid, 
+          and Houdini by allowing artists to export textures for multiple models simultaneously. 
+          Inside Substance Painter, users can associate each texture set with a specific production asset, 
+          enabling efficient lookdev for entire sets or character kits in a single session. 
+          This allows multiple props or character parts to be painted together but still exported to their own correct destinations.
+        </p>
+
+        <img src="media/sp_texture_mapping_ui.png" alt="Substance Painter Export Mapping UI" class="tool-image">
+
+        <p>
+          Upon export, the tool prompts the user to specify metadata for each asset, including 
+          render pass type (e.g., hero, midground), material variant (e.g., dusty, wet), 
+          and geometry variant (e.g., damaged, clean). It then automatically generates the correct 
+          folder structure, converts texture maps to <code>.tex</code> files optimized for RenderMan, 
+          and updates the ShotGrid database with any new variants. This ensures surfacing work is both technically correct and pipeline-aware, 
+          reducing the risk of asset mismatches in downstream departments.
+        </p>
+
+        <img src="media/variant_entry_dialog.png" alt="Variant Entry Dialog" class="tool-image">
+
+        <p>
+          Once textures are in place, a Houdini-side tool reads the variant data and automatically builds RenderMan layered 
+          materials. Based on the assigned material and geometry variants, it creates networks that blend maps correctly, 
+          load the appropriate <code>.tex</code> files, and apply the correct shading models per object type. Artists don’t 
+          need to manually set up material networks—just select the asset, and the tool builds everything procedurally.
+        </p>
+
+        <img src="media/renderman_material_setup.png" alt="Auto-Built Layered Material in Houdini" class="tool-image">
+
+        <p>
+          This tool significantly accelerates lookdev for asset libraries and hero props by allowing for batched 
+          surfacing workflows while preserving full control over variant naming, ShotGrid integration, and downstream 
+          material generation. It also ensures that shading setups in Houdini match exactly what was exported from Substance, 
+          with no manual relinking or asset guessing.
+        </p>
+        <h2>Shotgrid API Bi-Directional Integration</h2>
+        <hr class="section-divider">
+
+
+            <p>
+              I built upon the internal ShotGrid API used in our pipeline to support full bi-directional communication. Previously, the API was limited to read-only access—artists could only query data like tasks, users, or version history. 
+              I extended this functionality to allow write-access as well, enabling DCC tools to publish new data directly to ShotGrid without leaving the application.
+            </p>
+
+            <img src="media/shotgrid_publish_ui.png" alt="DCC Publish UI" class="tool-image">
+
+            <p>
+              I designed a set of lightweight, extensible data structures to represent ShotGrid entities including <code>User</code>, 
+              <code>Task</code>, and <code>Version</code> These structs are now used throughout the pipeline tools to query 
+              existing production data and to construct and submit new entities when artists publish. 
+              All entity creation logic follows studio schema and validation rules, so new records integrate seamlessly with scheduling and review systems.
+            </p>
+
+            <p>
+              With this update, publishing tasks and versions can now be triggered directly from Maya, Houdini, or 
+              Nuke using custom UI tools that wrap this new API. Artists can publish lookdev variants, shot versions, 
+              or rigging WIPs without needing to manually enter data in the ShotGrid web interface. This reduces context 
+              switching, increases data accuracy, and allows publishing tools to intelligently infer metadata based on the artist’s current scene or file.
+            </p>
+
+            <p>
+              This upgrade unlocked an entire layer of automation in our DCC tools, from asset publishing and task 
+              tracking to auto-linking dependencies across departments. The new API structure is also modular and ready 
+              to support future features like automated thumbnail generation, cross-app asset history, and pipeline event hooks.
+            </p>
+
+
+
 </section>
 </body>
 </html>

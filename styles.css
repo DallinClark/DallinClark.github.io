@@ -1,14 +1,14 @@
 body {
   margin: 0;
   padding: 1rem;
-  background: #e2c491;
+  background: #3d4b50;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main-container {
   margin: 0 auto;
-  background: #faefdd; /* light cream or beige */
-  border: 1px solid #2c2622;
+  background: #ffffff; /* light cream or beige */
+  border: 1px solid #000000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   padding-bottom: 2rem;
 }
@@ -193,7 +193,7 @@ nav a .icon {
 
 .section-divider {
   border: none;
-  border-top: 2px solid #2c2622;
+  border-top: 1px solid #2c2622;
 
   width: calc(100% + 4rem);   /* wider than container */
   max-width: 80vw;            /* cap width on small screens */
