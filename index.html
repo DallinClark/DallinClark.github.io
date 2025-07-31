@@ -15,7 +15,7 @@
       <h1>Dallin Clark — Graphics Programmer</h1>
       <nav>
         <a href="index.html">Home</a>
-        <a href="media/Dallin_Clark_Resume_10-28.pdf" target="_blank">Resume</a>
+        <a href="media/Dallin_Clark_Resume_2025.pdf" target="_blank">Resume</a>
         <a href="https://github.com/DallinClark" target="_blank">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon" />
         </a>
@@ -45,23 +45,39 @@
     <h2>Projects</h2>
     <hr class="section-divider">
     <div class="project-grid">
-      <a href="projects/raytrace.html" class="project-card">
+      <div class="project-card">
+        <a class="card-overlay" href="projects/raytrace.html" aria-label="Open project page"></a>
+
         <h3 class="project-title">Real Time Vulkan RayTracer</h3>
-        <img src="media/project_thumbnails/raytrace2.png" alt="Real Time Raytracer thumbnail">
-        <p class="project-description">A real time raytracer build using C++ and Vulkan.</p>
-      </a>
+        <img src="media/project_thumbnails/raytrace2.png" alt="Raytracer thumbnail">
+        <p class="project-description">
+          A real time raytracer built using C++ and Vulkan.<br><br>
+          <a class="source-link" href="https://github.com/dallinclark/RealTimeRaytracer" target="_blank" rel="noopener">Source Code</a>
+        </p>
+      </div>
 
-      <a href="projects/bobo_pipe.html" class="project-card">
+      <div class="project-card">
+        <a class="card-overlay" href="projects/bobo_pipe.html" aria-label="Open project page"></a>
+
         <h3 class="project-title">Honey Buisness Pipeline</h3>
-        <img src="media/project_thumbnails/pipe_thumb.png" alt="USD pipeline thumbnail">
-        <p class="project-description">A USD pipeline used for asset creation, layout, shading, animaiton, fx, lighting, and more in the BYU short film <em> Honey Buisness</em></em>.</p>
-      </a>
+        <img src="media/project_thumbnails/pipe_thumb.png" alt="Pipeline thumbnail">
+        <p class="project-description">
+          A USD pipeline used for asset creation, layout, shading, animaiton, fx, lighting,
+           and more in the BYU short film <em> Honey Buisness</em></em>.<br><br>
+          <a class="source-link" href="https://github.com/dallinclark/bobo-pipeline" target="_blank" rel="noopener">Source Code</a>
+        </p>
+      </div>
 
-      <a href="projects/physics_engine.html" class="project-card">
+      <div class="project-card">
+        <a class="card-overlay" href="projects/physics_engine.html" aria-label="Open project page"></a>
+
         <h3 class="project-title">Real Time Physics Engine</h3>
-        <img src="media/project_thumbnails/physics_thumb.png" alt="Real Time Physics Engine thumbnail">
-        <p class="project-description">A real time physics simulation tool made using C++ and OpenGL.</p>
-      </a>
+        <img src="media/project_thumbnails/physics_thumb.png" alt="Physics thumbnail">
+        <p class="project-description">
+          A real time physics simulation tool made using C++ and OpenGL.<br><br>
+          <a class="source-link" href="https://github.com/dallinclark/3d-physics-engine" target="_blank" rel="noopener">Source Code</a>
+        </p>
+      </div>
   </section>
 
 
@@ -70,29 +86,46 @@
   <hr class="section-divider">
 
     <div class="project-grid">
-        <a href="projects/vrware.html" class="project-card">
+      <div class="project-card">
+        <a class="card-overlay" href="projects/os.html" aria-label="Open project page"></a>
         <h3 class="project-title">OS-Agnostic Lab Image</h3>
         <img src="media/project_thumbnails/OS_thumb.png" alt="OS thumbnail">
-        <p class="project-description">As seen at SIGGRAPH 2025: A Linux image for lab machines that boots up a Windows virtual mahcine at the press of a button, allowing for dual OS workflows.</p>
-      </a>
+        <p class="project-description">
+          As seen at SIGGRAPH 2025: A Linux image for lab machines that boots up a Windows virtual mahcine at the press of a button, 
+          allowing for dual OS workflows.<br><br>
+          <a class="source-link" href="https://dl.acm.org/doi/10.1145/3721239.3734118" target="_blank" rel="noopener">DOI</a>
+        </p>
+      </div>
 
-      <a href="projects/vrware.html" class="project-card">
+      <div class="project-card">
+        <a class="card-overlay" href="projects/vrware.html" aria-label="Open project page"></a>
         <h3 class="project-title">VRWare: A VR User Study</h3>
         <img src="media/project_thumbnails/VR_thumb.png" alt="VR thumbnail">
-        <p class="project-description">A set of VR control schemes and minigames used for ongoing research and user studies into intuitive VR controls.</p>
-      </a>
-
-  </section>
-
-
-  <footer>
-      <hr class="section-divider">
-
-    <p style="text-align: center; padding: 0.5rem;">
+        <p class="project-description">
+          A set of VR control schemes and minigames used for ongoing research and user studies into intuitive VR controls.<br><br>
+          Still in progress
+        </p>
+      </div>
+    </div>
+    <hr class="section-divider">
+    <p style="text-align: center; padding: 0rem;">
       © 2025 Dallin Clark · Built with HTML/CSS · <a href="mailto:dallinbretclark@gmail.com">Contact Me</a>
     </p>
-  </footer>
+  </section>
 
   <div>
+  <script>
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', e => {
+      // if the click target is a link, do nothing (let link handle it)
+      if (e.target.closest('a')) return;
+      // otherwise, navigate to the overlay href
+      const overlay = card.querySelector('.card-overlay');
+      if (overlay && overlay.href) {
+        window.location.href = overlay.href;
+      }
+    });
+  });
+</script>
 </body>
 </html>

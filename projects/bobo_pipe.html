@@ -3,29 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dallin Clark — Graphic's Programmer</title>
+  <title>Dallin Clark — Graphics Programmer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="project_styles.css">
 </head>
 
 <body>  
   <div class="main-container">
     <header>
-    <div class="header-container">
-      <h1>Dallin Clark — Graphics Programmer</h1>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="media/Dallin_Clark_Resume_10-28.pdf" target="_blank">Resume</a>
-        <a href="https://github.com/DallinClark" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon" />
-        </a>
-        <a href="https://linkedin.com/in/dallin-clark1" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="icon" />
-        </a>
-      </nav>
+      <div class="header-container">
+        <h1>Dallin Clark — Graphics Programmer</h1>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="../media/Dallin_Clark_Resume_2025.pdf" target="_blank">Resume</a>
+          <a href="https://github.com/DallinClark" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon" />
+          </a>
+          <a href="https://linkedin.com/in/dallin-clark1" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="icon" />
+          </a>
+        </nav>
+      </div>
+    </header>
+        <div class="raytracer-banner">
+      <h1>Honey Buisness Pipeline</h1>
     </div>
-  </header>
 
+  <section id="description" class="project-detail-section">
+  <!-- Project details -->
+  <div class="project-details">
+    <p>
+      <a href="https://github.com/dallinclark/bobo-pipeline">This project</a> is a <b>USD</b>-based pipeline I developed for the short film <i>Honey Business</i> by the BYU Center for Animation.  
+      It builds on <a href="https://github.com/scottdmilner/dungeon-pipeline">dungeon pipeline</a> by Scott Milner, used in the short film <i>Love and Gold</i>.
+      <br>  <br>
+      It consists of a full production framework that streamlines asset publishing, shot setup, look development, layout creation, render submission, and more.  
+      It's purpose is to standardize workflows across <b>Maya</b>, <b>Houdini</b>, <b>Substance Painter</b>, and <b>Nuke</b>, and it utilizes <b>Python</b> and USD.
+      <br><br>
+      Read more about some of the features below!
+    </p>
+  </div>
 
+  <!-- Features -->
+  <div class="project-features">
+    <h2>Features</h2>
+    <hr class="section-divider">
+
+    <ul>
+      <li>Built from the ground up in <strong>C++20</strong> using <strong>Vulkan</strong> and <strong>Vulkan-Hpp</strong></li>
+      <li>Physically accurate light transport with modern GPU ray tracing pipelines</li>
+      <li>Acceleration structures (BLAS and TLAS) for optimized rendering</li>
+      <li>Programmable ray tracing pipeline with closest-hit and any-hit shaders</li>
+      <li>Supports multiple textured OBJ models with descriptor sets</li>
+      <li>Storage image output with ray generation shaders writing directly to full-resolution images</li>
+      <li>Custom Vulkan wrappers for descriptor pools, shader binding tables, and pipeline layouts</li>
+      <li>Dynamic scene metadata loading and render graph building</li>
+      <li>Live debugging video demonstration included</li>
+    </ul>
+  </div>
+
+  <!-- Embedded video -->
+  <div class="project-video">
+    <iframe 
+      src="https://www.youtube.com/embed/AdqKjL26Mhg?rel=0&modestbranding=1"
+      title="Real-Time Vulkan Ray Tracer by Dallin Clark"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 </body>
 </html>

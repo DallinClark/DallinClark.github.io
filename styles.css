@@ -9,7 +9,7 @@ body {
   margin: 0 auto;
   background: #faefdd; /* light cream or beige */
   border: 1px solid #2c2622;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   padding-bottom: 2rem;
 }
 
@@ -105,7 +105,9 @@ nav a .icon {
   justify-content: center;
 }
 
+
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,10 +116,31 @@ nav a .icon {
   border-radius: 10px;
   width: 250px;
   padding: 1rem;
-  text-decoration: none;
-  color: black;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+  cursor: pointer; /* show pointer on hover */
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;  /* above everything but below source-link */
+  background: transparent;
+}
+
+.project-card > *:not(.card-overlay) {
+  position: relative;
+  z-index: 3; /* above overlay */
+}
+
+.source-link {
+  position: relative;
+  z-index: 10;   /* highest to be clickable */
+  color: #007acc;
+  text-decoration: underline;
+  pointer-events: auto; /* ensure clicks work */
 }
 
 .project-card:hover {
@@ -155,6 +178,10 @@ nav a .icon {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   color: #2c2622; /* darker brown */
+}
+
+.about p {
+  font-size: 1.1rem; 
 }
 
 #research h2,
