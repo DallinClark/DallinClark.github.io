@@ -334,3 +334,77 @@ nav a .icon {
   margin-top: 1.5rem;
   font-weight: 600;
 }
+
+.surface-tools-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.surface-tool {
+  text-align: center;
+  margin: 0;
+}
+
+.surface-tool-image {
+  width: 300px;               /* or whatever small size you want */
+  height: auto;               /* auto height to preserve aspect ratio */
+  object-fit: contain;        /* show entire image without cropping */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.surface-tool figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.surface-tool2-image {
+  width: 400px;               /* or whatever small size you want */
+  height: auto;               /* auto height to preserve aspect ratio */
+  object-fit: contain;        /* show entire image without cropping */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.surface-tool3-image {
+  width: 400px;               /* or whatever small size you want */
+  height: auto;               /* auto height to preserve aspect ratio */
+  object-fit: contain;        /* show entire image without cropping */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.surface-tool4-image {
+  width: 400px;               /* or whatever small size you want */
+  height: auto;               /* auto height to preserve aspect ratio */
+  object-fit: contain;        /* show entire image without cropping */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+.code-sample {
+  border-radius: 8px;
+  overflow-x: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Override Prism defaults slightly */
+.code-sample code {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  white-space: pre;
+}

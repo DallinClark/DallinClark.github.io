@@ -35,7 +35,7 @@
     <p>
       <a href="https://github.com/dallinclark/bobo-pipeline">This project</a> is a <b>USD</b>-based pipeline I developed for the short film <i>Honey Business</i> by the BYU Center for Animation.  
       It builds on <a href="https://github.com/scottdmilner/dungeon-pipeline">dungeon pipeline</a> by 
-      <a href="https://www.linkedin.com/in/sdmilner/" target="_blank" rel="noopener noreferrer">Scott Milner</a>
+      <b><a href="https://www.linkedin.com/in/sdmilner/" target="_blank" rel="noopener noreferrer">Scott Milner</a></b>
        used in the short film <i>Love and Gold</i>.
       <br>  <br>
       It consists of a full production framework that streamlines asset publishing, shot setup, look development, layout creation, render submission, and more.  
@@ -99,81 +99,149 @@
         
 
         <p>
-          Altogether, this tool bridges the gap between DCCs, allowing layout to begin in Maya where artists are most comfortable,
+          Altogether, this tool <b>bridges the gap between DCCs</b>, allowing layout to begin in Maya where artists are most comfortable,
           while ensuring compatibility and fidelity with downstream USD workflows in Solaris or any Hydra-compliant renderer.
         </p>
 
     <h2>Look Dev Pipeline</h2>
     <hr class="section-divider">
         <p>
-          This custom tool streamlines the surfacing workflow across Substance Painter, ShotGrid, 
-          and Houdini by allowing artists to export textures for multiple models simultaneously. 
-          Inside Substance Painter, users can associate each texture set with a specific production asset, 
-          enabling efficient lookdev for entire sets or character kits in a single session. 
-          This allows multiple props or character parts to be painted together but still exported to their own correct destinations.
+          This tool streamlines the surfacing workflow across <b>Substance Painter and Houdini</b>
+          by allowing artists to export textures that then get automatically built as <b>RenderMan Material Layers</b>. 
+          <br><br>
+          In Substance Painter, users can link each texture set to a specific production asset regardless of how many texture sets are involved. 
+          This enables entire asset groups to be textured simultaneously, with all files automatically published to their correct destinations.
         </p>
 
-        <img src="media/sp_texture_mapping_ui.png" alt="Substance Painter Export Mapping UI" class="tool-image">
-
         <p>
-          Upon export, the tool prompts the user to specify metadata for each asset, including 
+          Upon export, the tool <b>allows the user to specify metadata</b> for each asset, including 
           render pass type (e.g., hero, midground), material variant (e.g., dusty, wet), 
-          and geometry variant (e.g., damaged, clean). It then automatically generates the correct 
-          folder structure, converts texture maps to <code>.tex</code> files optimized for RenderMan, 
+          and geometry variant (e.g., damaged, clean). 
+          <br><br>
+          It then automatically generates the correct 
+          folder structure, <b>converts texture maps to </b><code>.tex</code> files optimized for RenderMan, 
           and updates the ShotGrid database with any new variants. This ensures surfacing work is both technically correct and pipeline-aware, 
           reducing the risk of asset mismatches in downstream departments.
+          <br><br>
+          The publishing tool builds on 
+          <a href="https://github.com/scottdmilner/dungeon-pipeline/blob/prod/pipeline/pipe/sp/export.py" target="_blank" rel="noopener noreferrer">dungeons-pipeline export system</a>, 
+          with significant enhancements including support for new variant types, 
+          batch publishing of textures across multiple assets, and extended export 
+          functionality for Renderman material layers.
         </p>
 
-        <img src="media/variant_entry_dialog.png" alt="Variant Entry Dialog" class="tool-image">
+          <div class="surface-tools-row">
+            <figure class="surface-tool">
+              <img src="../media/projects/choose_asset.png" alt="Maya Layout Tool UI" class="surface-tool-image">
+              <figcaption>Matching Texture Sets to Assets</figcaption>
+            </figure>
+          
+            <figure class="surface-tool">
+              <img src="../media/projects/variant.png" alt="Houdini Layout Tool UI" class="surface-tool-image">
+              <figcaption>Choosing Texture Metadata</figcaption>
+            </figure>
+        
+          </div>
 
         <p>
-          Once textures are in place, a Houdini-side tool reads the variant data and automatically builds RenderMan layered 
-          materials. Based on the assigned material and geometry variants, it creates networks that blend maps correctly, 
+          Once textures are in place, a Houdini-side tool reads the variant data and <b>automatically builds RenderMan layered 
+          materials</b> using a <b>Houdini HDA</b>. Based on the assigned material and geometry variants, it creates networks that blend maps correctly, 
           load the appropriate <code>.tex</code> files, and apply the correct shading models per object type. Artists don’t 
-          need to manually set up material networks—just select the asset, and the tool builds everything procedurally.
+          need to manually set up material networks, just select the asset, and the tool builds everything procedurally.
         </p>
 
-        <img src="media/renderman_material_setup.png" alt="Auto-Built Layered Material in Houdini" class="tool-image">
+          <div class="surface-tools-row">
+            <figure class="surface-tool">
+              <img src="../media/projects/shader_build.png" alt="Build UI" class="surface-tool3-image">
+              <figcaption>Build UI</figcaption>
+            </figure>
+          
+            <figure class="surface-tool">
+              <img src="../media/projects/nodes_shading.png" alt="Automatically Built Network" class="surface-tool2-image">
+              <figcaption>Auto Built Network</figcaption>
+            </figure>
+        
+          </div>
+
 
         <p>
-          This tool significantly accelerates lookdev for asset libraries and hero props by allowing for batched 
-          surfacing workflows while preserving full control over variant naming, ShotGrid integration, and downstream 
-          material generation. It also ensures that shading setups in Houdini match exactly what was exported from Substance, 
-          with no manual relinking or asset guessing.
+          This tool <b>significantly accelerates lookdev</b> for building asset libraries and hero props by allowing for batched 
+          surfacing workflows while preserving full control over variant creation and material attributes. 
+          It also ensures that shading setups in Houdini match exactly what was exported from Substance, 
+          with no manual relinking.
         </p>
+          <div class="surface-tools-row">
+            <figure class="surface-tool">
+              <img src="../media/projects/textured_sample.png" alt="Build UI" class="surface-tool4-image">
+              <figcaption>Textured Asset<br>
+              Shading Artist: <a href="https://www.linkedin.com/search/results/all/?keywords=paige%20lai&origin=GLOBAL_SEARCH_HEADER&sid=R~9" target="_blank" rel="noopener noreferrer">Paige Lai</a>
+            </figure>
+        
+        
+          </div>
+
+
         <h2>Shotgrid API Bi-Directional Integration</h2>
         <hr class="section-divider">
 
 
             <p>
-              I built upon the internal ShotGrid API used in our pipeline to support full bi-directional communication. Previously, the API was limited to read-only access—artists could only query data like tasks, users, or version history. 
+              I <b>built upon the internal ShotGrid API</b> used in our pipeline to support full bi-directional communication. 
+              Previously, the API was limited to read-only access, artists could only query data like tasks, users, or version history. 
               I extended this functionality to allow write-access as well, enabling DCC tools to publish new data directly to ShotGrid without leaving the application.
             </p>
 
-            <img src="media/shotgrid_publish_ui.png" alt="DCC Publish UI" class="tool-image">
-
             <p>
-              I designed a set of lightweight, extensible data structures to represent ShotGrid entities including <code>User</code>, 
-              <code>Task</code>, and <code>Version</code> These structs are now used throughout the pipeline tools to query 
+              I created a set of lightweight, extensible <b>data structures to represent ShotGrid entities</b> including <code>User</code>, 
+              <code>Task</code>, and <code>Version</code>. These structs are now used throughout the pipeline tools to query 
               existing production data and to construct and submit new entities when artists publish. 
-              All entity creation logic follows studio schema and validation rules, so new records integrate seamlessly with scheduling and review systems.
+              All entity creation logic follows our own schema and validation rules, so new records integrate seamlessly with scheduling and review systems.
             </p>
 
             <p>
-              With this update, publishing tasks and versions can now be triggered directly from Maya, Houdini, or 
-              Nuke using custom UI tools that wrap this new API. Artists can publish lookdev variants, shot versions, 
+              With this update, publishing tasks and versions can now be triggered <b>directly from Maya, Houdini, or 
+              Nuke</b> using custom UI tools that wrap this new API. Artists can publish lookdev variants, shot versions, 
               or rigging WIPs without needing to manually enter data in the ShotGrid web interface. This reduces context 
               switching, increases data accuracy, and allows publishing tools to intelligently infer metadata based on the artist’s current scene or file.
             </p>
 
             <p>
-              This upgrade unlocked an entire layer of automation in our DCC tools, from asset publishing and task 
+              This upgrade <b>unlocked an entire layer of automation in our DCC tools</b>, from asset publishing and task 
               tracking to auto-linking dependencies across departments. The new API structure is also modular and ready 
               to support future features like automated thumbnail generation, cross-app asset history, and pipeline event hooks.
             </p>
 
+            <h3>Example: Publishing a New Version</h3>
+            <pre class="code-sample"><code class="language-python">
+            from pipe.db import DB
+            from env_sg import DB_Config
+
+            # Establish connection with ShotGrid
+            conn = DB(DB_Config)
+
+            # Get list of shots
+            shots = conn.get_shot_code_list()
+
+            # Get different entities in custom structs
+            shot = conn.get_shot_by_code(shots[0])
+            user = conn.get_user_by_name("Katie Willard")
+            task = conn.get_tasks(shot, user)
+
+            # Publish the version with custom attributes
+            conn.create_version_for_shot(shot=shot,code="newer_version",
+                                         user=user,task=task[0], "/path/to/mp4", 
+                                         "shot_description")
+            </code></pre>
+
 
 
 </section>
+<!-- Prism CSS (choose a theme you like) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
 </body>
 </html>
