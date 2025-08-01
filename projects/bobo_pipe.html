@@ -34,7 +34,9 @@
   <div class="project-details">
     <p>
       <a href="https://github.com/dallinclark/bobo-pipeline">This project</a> is a <b>USD</b>-based pipeline I developed for the short film <i>Honey Business</i> by the BYU Center for Animation.  
-      It builds on <a href="https://github.com/scottdmilner/dungeon-pipeline">dungeon pipeline</a> by Scott Milner, used in the short film <i>Love and Gold</i>.
+      It builds on <a href="https://github.com/scottdmilner/dungeon-pipeline">dungeon pipeline</a> by 
+      <a href="https://www.linkedin.com/in/sdmilner/" target="_blank" rel="noopener noreferrer">Scott Milner</a>
+       used in the short film <i>Love and Gold</i>.
       <br>  <br>
       It consists of a full production framework that streamlines asset publishing, shot setup, look development, layout creation, render submission, and more.  
       It's purpose is to standardize workflows across <b>Maya</b>, <b>Houdini</b>, <b>Substance Painter</b>, and <b>Nuke</b>, and it utilizes <b>Python</b> and USD.
@@ -45,39 +47,56 @@
 
   <!-- Features -->
   <div class="project-features">
-    <h2>Maya/Houdini USD Layout Toolset</h2>
+    <h2>Maya/Houdini USD Layout Creation</h2>
     <hr class="section-divider">
        <p>
-          This toolset provides a fully integrated solution for authoring USD layout stages directly within Maya. 
-          Using Maya’s USD proxy shape system, it automates stage creation by generating a structured USD hierarchy allowing for layout group creation, 
-          and ShotGrid-linked asset references at the press of a button.
-
-        <img src="media/qt_layout_tool.png" alt="Qt Layout Tool UI" class="tool-image">
+          This toolset provides a solution for authoring USD layout layers directly within Maya or Houdini, which can then be used downstream for animation, rendering, etc. 
+          <br><br>
+          Using <b>Maya’s USD Proxy Shape node</b>, it automates stage creation in Maya by generating a structured USD hierarchy that is consistent thourghout the pipe.
+          I also updated an existing <b>Houdini HDA</b>, that sets up the same USD structure, allowing for layout creation or tweaking in either software.
 
         <p>
-          The tool includes a set of custom Qt interfaces that query ShotGrid for the list of sets to build upon, and a list of assets to reference in. 
+          The tool includes a set of custom <b>Qt</b> interfaces that query <b>ShotGrid</b> for the list of environments to build upon, and a list of assets to reference in. 
           Artists can assign or replace layout contents using dropdowns and selection UIs, ensuring consistency with production-tracked assets. 
           These selections drive the creation of reference prims, grouped by logical layout groupings, and organized under a user-defined hierarchy inside the USD stage.
         </p>
 
-        <img src="media/qt_asset_browser.png" alt="Qt Asset Browser" class="tool-image">
+        <div class="image-row">
+          <img src="../media/projects/env_qt.png" alt="Qt Layout Tool UI" class="tool-image">
+          <img src="../media/projects/reference_qt.png" alt="Qt Layout Tool UI" class="tool-image">
+        </div>
 
         <p>
-          Transform control is handled through a Maya script job that listens for viewport selection. 
-          When an asset proxy is selected, its transform is automatically applied to the corresponding 
-          Xform prim tied to the reference, allowing for transforms to be applied correctly regardless of how the object was selected. 
-          This abstraction ensures that the layout’s final USD file retains clean hierarchical transforms without Maya-native DAG clutter.
+          I also developed tools in Maya and Houdini that allow for instant recreation of layouts published in the other software. 
+          <br><br>
+          This allows layouts to be built and changed in Maya or Houdini regardless of the DCC used in previous work on this set.
+          This works regardless of the step in produciton, or even whether or not assets are finished becuase of <b>USD references</b>. 
+          This lets anyone in the production pipline make layout edits that are instantly updated everywhere else.
+
         </p>
 
-        <p>
-          The exported USD file is designed to be visually and structurally identical to those authored natively in Houdini Solaris. 
-          A companion Solaris-based layout extension tool loads these Maya-authored stages and allow these layout to be built upon in either software. 
-          Houdini will always load the current maya layout and add it's changes on top, but for Maya, due to its destructive workflow, has a button 
-          that will make whatever scene if currenly up match exactly a chosen layout that has been published from Houdini, allowing for layouts to 
-          be edited in either software, and to be exported in a way that can be used downstream.
-        </p>
 
-        <img src="media/usd_stage_output.png" alt="Output USD Stage in Solaris" class="tool-image">
+          <div class="layout-tools-row">
+            <figure class="layout-tool">
+              <img src="../media/projects/maya_layout.png" alt="Maya Layout Tool UI" class="layout-tool-image">
+              <figcaption>Maya Layout</figcaption>
+            </figure>
+          
+            <figure class="layout-tool">
+              <img src="../media/projects/houdini_layout.png" alt="Houdini Layout Tool UI" class="layout-tool-image">
+              <figcaption>Houdini Layout From Maya</figcaption>
+            </figure>
+          
+            <figure class="layout-tool">
+              <img src="../media/projects/final_shot.png" alt="Final Shot" class="layout-tool-image">
+              <figcaption>Final Shot</figcaption>
+            </figure>
+          </div>
+          
+          <p class="layout-artist">
+            Layout Artist: <a href="https://www.linkedin.com/in/isabella-francis-4996ba320/" target="_blank" rel="noopener noreferrer">Isabella Francis</a>
+          </p>
+        
 
         <p>
           Altogether, this tool bridges the gap between DCCs, allowing layout to begin in Maya where artists are most comfortable,
